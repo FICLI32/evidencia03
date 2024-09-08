@@ -53,6 +53,7 @@ public class Palindromo {
                 String cadena = scanner.nextLine();
                 boolean resultado = palindromo(cadena);
                 System.out.println("Es palindromo? " + resultado);
+                break;
 
             case 2:
                 System.out.println("Saliendo del programa...");
