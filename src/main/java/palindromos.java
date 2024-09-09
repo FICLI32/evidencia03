@@ -6,7 +6,7 @@ public class palindromos {
         String caso4 = "ahabccbaaa";
         String caso5 = "La tele letal";
         esPalindromo(caso1);
-        System.out.println(" '' es palindromo?" + esPalindromo(caso2));
+        esPalindromo(caso2);
         System.out.println("aaabccbaaa es palindromo?" + esPalindromo(caso3));
         System.out.println(" ahabccbaaa es palindromo?" + esPalindromo(caso4));
         System.out.println(" La tele letal es palindromo?" + esPalindromo(caso5));
@@ -20,10 +20,14 @@ public class palindromos {
                 System.out.println("Error: Los números no están permitidos");
                 return false;
             }
+            if (esVacio(texto)) {
+                System.out.println("Texto vacio no permitido");
+                return false;
+            }
             String textoInvertido = invertirTexto(texto);
             return texto.equals(textoInvertido);
 
-        } catch (Exception e) {
+        }catch (IllegalArgumentException e) {
             System.out.println("Error: " + e.getMessage());
             return false;
         }
@@ -39,6 +43,9 @@ public class palindromos {
     }
     public static boolean contieneNumeros(String texto) {
         return texto.matches(".*\\d.*");
+    }
+    private static boolean esVacio(String texto) {
+        return texto == null || texto.isEmpty();
     }
 
 }
